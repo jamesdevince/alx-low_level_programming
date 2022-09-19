@@ -1,0 +1,1 @@
+pinter, arrays and strings
