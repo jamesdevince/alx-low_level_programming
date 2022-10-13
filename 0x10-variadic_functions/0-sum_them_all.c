@@ -1,26 +1,27 @@
 #include "variadic_functions.h"
+#include <stdarg.h>
 
- /**
- * sum_them_all - adds num
- * @n: param
- * Return: int
+/**
+ * sum_them_all - variadic function to add number
+ * @n: const unsigned int type
+ * Return: sum of numbers
  */
 
 int sum_them_all(const unsigned int n, ...)
 {
-	va_list valist;
+	unsigned int sum = 0;
 	unsigned int i;
-	int sum = 0;
+	va_list addlist;
+
+	va_start(addlist, n);
 
 	if (n == 0)
 		return (0);
-
-	va_start(valist, n);
-
 	for (i = 0; i < n; i++)
-		sum += va_arg(valist, int);
-
-	va_end(valist);
+	{
+		sum += va_arg(addlist, unsigned int);
+	}
+	va_end(addlist);
 
 	return (sum);
 }
